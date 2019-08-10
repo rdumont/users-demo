@@ -1,0 +1,16 @@
+version: '3.4'
+services:
+  web:
+    build: '.'
+    environment:
+      - 'MONGO_URL=mongodb://mongodb/users-demo'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  db:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
